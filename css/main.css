@@ -7,6 +7,7 @@
 body {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: Montserrat, sans-serif;
@@ -20,6 +21,9 @@ body {
     text-align: center;
     font-weight: bold;
 }
+#kek {
+    margin-bottom: 15px;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -28,14 +32,20 @@ form {
 input {
     margin: 10px 0;
     padding: 10px;
-    border-bottom: 2px solid #e3e3e3;
+    border: 2px solid #ffa908;
     outline: none;
+    border-radius: 10px;
 }
 button {
     padding: 10px;
     background: #e3e3e3;
     border: unset;
     cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #ffa908;
+    font-size: 17px;
 }
 .table {
     width: 100%;
@@ -71,4 +81,16 @@ a {
     text-decoration: none;
     padding-bottom: 3px;
     color: #ffa908;
+}
+.Zakaz {
+    border: 5px solid #ffd300;
+    height: 450px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+p {
+    padding-bottom: 10px;
 }

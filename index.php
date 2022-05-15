@@ -12,11 +12,12 @@ session_start()
     <title>Document</title>
 </head>
 <body>
-<form action="Connection/postform.php" method="post">
-    <p>Начало заезда<input type="Date" required name="StartDate" ></p>
-    <p>Конец заезда<input type="Date" required name="DateEnd" ></p>
-    <p>Количество человек<input type="" required name="CountVisitors" placeholder="Укажите количество человек"></p>
-    <p> Выберите номер<select name="RoomId">
+<h1 id="kek">Оформление заказа</h1>
+<form class="Zakaz" action="Connection/postform.php" method="post">
+    <p>Начало заезда <input type="Date" required name="StartDate" ></p>
+    <p>Конец заезда <input type="Date" required name="DateEnd" ></p>
+    <p>Количество человек <input type="" required name="CountVisitors" placeholder="Укажите кол-во человек"></p>
+    <p> Выберите номер <select name="RoomId">
         <?php
         require_once 'Connection/connect.php';
         $query = mysqli_query($connect, "SELECT * FROM `hotelrooms`");
@@ -28,8 +29,8 @@ session_start()
         ?>
     </select></p>
     <button type="submit">Оформить</button>
-    <p>Просмотреть заказы:<a href="ShowTable.php">Заказы</a></p>
-    <p>Просмотреть заказы:<a href="ShowTable.php">Шахматка</a></p>
+    <p>Просмотреть заказы: <a href="ShowTable.php">Заказы</a></p>
+    <p>Просмотреть заказы: <a href="ChessBoard.php">Шахматка</a></p>
             <?php
             if (isset($_SESSION['message']))
             {
