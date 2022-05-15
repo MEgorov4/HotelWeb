@@ -1,6 +1,7 @@
 <?php
+require_once 'Functions/DateSplit.php';
 
-function build_calendar($month,$year) {
+function build_calendar($month,$year,$arrOfDays) {
 
     // Create array containing abbreviations of days of week.
     $daysOfWeek = array('Пн','Вт','Ср','Чт','Пт','Сб','Вс');
@@ -66,8 +67,15 @@ function build_calendar($month,$year) {
         $currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
 
         $date = "$year-$month-$currentDayRel";
+        if (IsDateInclude($date,$arrOfDays))
+        {
+            $calendar .= "<td class='busy_day' rel='$date'>$currentDay</td>";
+        }
+        else
+        {
+            $calendar .= "<td class='day' rel='$date'>$currentDay</td>";
+        }
 
-        $calendar .= "<td class='busy_day' rel='$date'>$currentDay</td>";
 
         // Increment counters
 
@@ -95,5 +103,6 @@ function build_calendar($month,$year) {
 
 }
 
-
 ?>
+
+

@@ -11,8 +11,19 @@ function getMonth($pdate)
     return $date->format("m");
 }
 
-function getDay($pdate)
+/*function getDay($pdate)
 {
     $date = DateTime::createFromFormat("Y-m-d", $pdate);
     return $date->format("d");
+}*/
+function IsDateInclude($Date,$DateArr)
+{
+    foreach ($DateArr as $date)
+    {
+        if ($Date == $date)
+        {
+            return true;
+        }
+    }
+    return false;
 }
