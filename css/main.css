@@ -84,6 +84,7 @@ a {
 }
 .Zakaz {
     border: 5px solid #ffd300;
+    border-radius: 10px;
     height: 450px;
     width: 500px;
     display: flex;
