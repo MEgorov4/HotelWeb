@@ -1,0 +1,28 @@
+.calendar
+{
+    border: 2px solid #ffa908;
+    height: 156px;
+    width: 172px;
+    margin-right: 20px;
+}
+.week{
+    width: 172px;
+    background-color: #FFFF00;
+}
+caption{
+    background-color: #ffd300;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat, sans-serif;
+}
+.day{
+    background-color: lawngreen;
+
+}
+.busy_day{
+    background-color: darkred;
+}

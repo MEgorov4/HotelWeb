@@ -3,7 +3,7 @@
 function build_calendar($month,$year) {
 
     // Create array containing abbreviations of days of week.
-    $daysOfWeek = array('S','M','T','W','T','F','S');
+    $daysOfWeek = array('Пн','Вт','Ср','Чт','Пт','Сб','Вс');
 
     // What is the first day of the month in question?
     $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
@@ -24,9 +24,9 @@ function build_calendar($month,$year) {
 
     // Create the table tag opener and day headers
 
-    $calendar = "<table class='calendar'>";
+    $calendar = "<div class='calendar'><table>";
     $calendar .= "<caption>$monthName $year</caption>";
-    $calendar .= "<tr>";
+    $calendar .= "<tr class='week'>";
 
     // Create the calendar headers
 
@@ -67,7 +67,7 @@ function build_calendar($month,$year) {
 
         $date = "$year-$month-$currentDayRel";
 
-        $calendar .= "<td class='day' rel='$date'>$currentDay</td>";
+        $calendar .= "<td class='busy_day' rel='$date'>$currentDay</td>";
 
         // Increment counters
 
@@ -89,7 +89,7 @@ function build_calendar($month,$year) {
 
     $calendar .= "</tr>";
 
-    $calendar .= "</table>";
+    $calendar .= "</table></div>";
 
     return $calendar;
 
