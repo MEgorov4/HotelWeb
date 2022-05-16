@@ -4,6 +4,8 @@
     height: 156px;
     width: 172px;
     margin-right: 20px;
+    margin-bottom: 20px;
+
 }
 .week{
     width: 172px;
@@ -13,16 +15,23 @@ caption{
     background-color: #ffd300;
 }
 body{
-    height: 100vh;
+/*    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Montserrat, sans-serif;
+    font-family: Montserrat, sans-serif;*/
 }
 .day{
     background-color: lawngreen;
 
 }
-.busy_day{
+.busy_day {
     background-color: darkred;
+
+}
+
+.calendarMassive
+{
+    display: flex;
+    flex-direction: row;
 }

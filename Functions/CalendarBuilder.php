@@ -2,50 +2,34 @@
 require_once 'Functions/DateSplit.php';
 
 function build_calendar($month,$year,$arrOfDays) {
-
-    // Create array containing abbreviations of days of week.
+    
     $daysOfWeek = array('Пн','Вт','Ср','Чт','Пт','Сб','Вс');
 
-    // What is the first day of the month in question?
     $firstDayOfMonth = mktime(0,0,0,$month,1,$year);
 
-    // How many days does this month contain?
     $numberDays = date('t',$firstDayOfMonth);
 
-    // Retrieve some information about the first day of the
-    // month in question.
     $dateComponents = getdate($firstDayOfMonth);
 
-    // What is the name of the month in question?
     $monthName = $dateComponents['month'];
 
-    // What is the index value (0-6) of the first day of the
-    // month in question.
     $dayOfWeek = $dateComponents['wday'];
 
-    // Create the table tag opener and day headers
 
     $calendar = "<div class='calendar'><table>";
     $calendar .= "<caption>$monthName $year</caption>";
     $calendar .= "<tr class='week'>";
 
-    // Create the calendar headers
 
     foreach($daysOfWeek as $day) {
         $calendar .= "<th class='header'>$day</th>";
     }
 
-    // Create the rest of the calendar
-
-    // Initiate the day counter, starting with the 1st.
 
     $currentDay = 1;
 
     $calendar .= "</tr><tr>";
 
-    // The variable $dayOfWeek is used to
-    // ensure that the calendar
-    // display consists of exactly 7 columns.
 
     if ($dayOfWeek > 0) {
         $calendar .= "<td colspan='$dayOfWeek'>&nbsp;</td>";
@@ -55,7 +39,6 @@ function build_calendar($month,$year,$arrOfDays) {
 
     while ($currentDay <= $numberDays) {
 
-        // Seventh column (Saturday) reached. Start a new row.
 
         if ($dayOfWeek == 7) {
 
@@ -77,16 +60,12 @@ function build_calendar($month,$year,$arrOfDays) {
         }
 
 
-        // Increment counters
 
         $currentDay++;
         $dayOfWeek++;
 
     }
 
-
-
-    // Complete the row of the last week in month, if necessary
 
     if ($dayOfWeek != 7) {
 

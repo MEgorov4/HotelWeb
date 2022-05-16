@@ -17,43 +17,55 @@ require_once 'Functions/DBfunc.php'
     <title>Document</title>
 </head>
 <body>
-<form action="index.php">
-<select name="room">
-    <?php
-        $queryHotelrooms = mysqli_query($connect, "SELECT * FROM `hotelrooms`");
-        $queryHotelrooms = mysqli_fetch_all($queryHotelrooms);
-        foreach ($queryHotelrooms as $item)
-        {
-            echo "<option value='$item[0]'>$item[1]</option>";
-        }
-        /*$selectRoomId = $_POST['room'];*/
-    ?>
-</select>
-</form>
 <?php
-$arrOfDays = array();
-$years = array();
-$months = array();
 
-$query = mysqli_query($connect,"SELECT * FROM `v_booking`");
-$query = mysqli_fetch_all($query);
-foreach ($query as $item)
+$queryRooms = mysqli_query($connect, "SELECT * FROM `hotelrooms`");
+$queryRooms = mysqli_fetch_all($queryRooms);
+echo '<div class="calendarMassive">';
+foreach ($queryRooms as $item)
 {
-    array_push($years,getYear(($item[2])));
-    array_push($months,getMonth($item[2]));
+    BildCalendarForRoom($item[1], $connect);
+}
+echo '</div>';
+function BildCalendarForRoom($selectRoom, $connect)
+{
+    $arrOfDays = array();
+    $years = array();
+    $months = array();
 
-    foreach (createDateRangeArray($item[2],$item[3]) as $Date)
+    $query = mysqli_query($connect,"SELECT * FROM `v_booking` WHERE RoomNumer = $selectRoom");
+    $query = mysqli_fetch_all($query);
+    foreach ($query as $item)
     {
-        array_push($arrOfDays,$Date);
+        array_push($years,getYear(($item[2])));
+        foreach (createDateRangeArray($item[2],$item[3]) as $Date)
+        {
+            array_push($arrOfDays,$Date);
+        }
+    }
+    $count = 0;
+    while (true)
+    {
+        $month = date('m',strtotime("+".$count." month"));
+        array_push($months,$month);
+        $count = $count + 1;
+        if ($month =='12')
+        {
+            break;
+        }
     }
 
-}
-$years = array_unique($years);
-$months = array_unique($months);
-foreach ($months as $month)
-{
-    $year = $years[0];
-    echo build_calendar($month,$year,$arrOfDays);
+    $years = array_unique($years);
+    $months = array_unique($months);
+    echo '<div><p>room:'.$selectRoom.'</p>';
+    foreach ($months as $month)
+    {
+        $year = $years[0];
+        echo build_calendar($month,$year,$arrOfDays);
+    }
+
+
+    echo '</div>';
 }
 ?>
 <a href="index.php">Перейдите в форму</a>
