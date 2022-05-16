@@ -21,7 +21,7 @@ body {
     text-align: center;
     font-weight: bold;
 }
-#kek {
+#Header {
     margin-bottom: 15px;
 }
 form {
@@ -82,7 +82,7 @@ a {
     padding-bottom: 3px;
     color: #ffa908;
 }
-.Zakaz {
+.Booking {
     border: 5px solid #ffd300;
     border-radius: 10px;
     height: 450px;

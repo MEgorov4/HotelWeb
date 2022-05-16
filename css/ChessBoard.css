@@ -14,13 +14,6 @@
 caption{
     background-color: #ffd300;
 }
-body{
-/*    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Montserrat, sans-serif;*/
-}
 .day{
     background-color: lawngreen;
 
@@ -34,4 +27,9 @@ body{
 {
     display: flex;
     flex-direction: row;
+}
+a {
+    text-decoration: none;
+    padding-bottom: 3px;
+    color: #ffa908;
 }

@@ -12,8 +12,8 @@ session_start()
     <title>Document</title>
 </head>
 <body>
-<h1 id="kek">Оформление заказа</h1>
-<form class="Zakaz" action="Connection/postform.php" method="post">
+<h1 id="Header">Оформление заказа</h1>
+<form class="Booking" action="Connection/postform.php" method="post">
     <p>Начало заезда <input type="Date" required name="StartDate" ></p>
     <p>Конец заезда <input type="Date" required name="DateEnd" ></p>
     <p>Количество человек <input type="" required name="CountVisitors" placeholder="Укажите кол-во человек"></p>
