@@ -1,11 +1,9 @@
 <?php
-require_once 'Connection/connect.php';
-
-require_once 'Functions/CalendarBuilder.php';
-require_once 'Functions/DateSplit.php';
-require_once 'Functions/DBfunc.php'
-
+require_once 'DATE_BASE_SOURCE/connect.php';
+require_once 'FUNCTIONS/calendarBuilder.php';
+require_once 'FUNCTIONS/dateOperations.php';
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,21 +11,25 @@ require_once 'Functions/DBfunc.php'
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/ChessBoard.css" type="text/css">
+    <link rel="stylesheet" href="CSS/employmentСhart.css" type="text/css">
     <title>Document</title>
 </head>
 <body>
+
 <?php
+
 
 $queryRooms = mysqli_query($connect, "SELECT * FROM `hotelrooms`");
 $queryRooms = mysqli_fetch_all($queryRooms);
+
 echo '<div class="calendarMassive">';
 foreach ($queryRooms as $item)
 {
-    BildCalendarForRoom($item[1], $connect);
+    BuildCalendarForRoom($item[1], $connect);
 }
 echo '</div>';
-function BildCalendarForRoom($selectRoom, $connect)
+
+function BuildCalendarForRoom($selectRoom, $connect): void
 {
     $arrOfDays = array();
     $years = array();
@@ -37,19 +39,20 @@ function BildCalendarForRoom($selectRoom, $connect)
     $query = mysqli_fetch_all($query);
     foreach ($query as $item)
     {
-        array_push($years,getYear(($item[2])));
+        $years[] = getYear(($item[2]));
         foreach (createDateRangeArray($item[2],$item[3]) as $Date)
         {
-            array_push($arrOfDays,$Date);
+            $arrOfDays[] = $Date;
         }
     }
+
     $count = 0;
     while (true)
     {
         $month = date('m',strtotime("+".$count." month"));
-        array_push($months,$month);
+        $months[] = $month;
         $count = $count + 1;
-        if ($month =='12')
+        if ($count == 12)
         {
             break;
         }
@@ -57,18 +60,18 @@ function BildCalendarForRoom($selectRoom, $connect)
 
     $years = array_unique($years);
     $months = array_unique($months);
-    echo '<div><p>room:'.$selectRoom.'</p>';
-    foreach ($months as $month)
+    echo '<div><h1>Room:'.$selectRoom.'</h1>';
+    foreach ($years as $year)
     {
-        $year = $years[0];
-        echo build_calendar($month,$year,$arrOfDays);
+        foreach ($months as $month)
+        {
+            echo build_calendar($month,$year,$arrOfDays);
+        }
     }
-
-
     echo '</div>';
 }
 ?>
-<a href="index.php">Перейдите в форму</a>
+<a href="postForm.php">Перейдите в форму</a>
 </body>
 </html>
 
