@@ -34,6 +34,7 @@ require_once 'DATE_BASE_SOURCE/connect.php';
     <button type="submit">Оформить</button>
     <p>Просмотреть заказы: <a href="bookingTable.php">Заказы</a></p>
     <p>Просмотреть заказы: <a href="employmentСhart.php">Шахматка</a></p>
+    <a href="MainPage.php">Главная</a>
 	<?php
 	if (isset($_SESSION['message'])) {
 		echo '<p class="msg">' . $_SESSION['message'] . '</p>';

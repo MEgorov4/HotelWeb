@@ -46,6 +46,6 @@ require_once "DATE_BASE_SOURCE/connect.php";
 
 	?>
 </table>
-<a href="postForm.php">Оформление заказа</a>
+<a href="MainPage.php">Главная</a>
 </body>
 </html>
