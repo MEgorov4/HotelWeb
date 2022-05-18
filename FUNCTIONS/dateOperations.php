@@ -1,18 +1,17 @@
 <?php
-require_once 'DATE_BASE_SOURCE/connect.php';
-function createDateRangeArray($strDateFrom,$strDateTo)
+function createDateRangeArray($strDateFrom,$strDateTo) : array
 {
-    $aryRange=array();
+    $aryRange = array();
 
-    $iDateFrom=mktime(1,0,0,substr($strDateFrom,5,2),     substr($strDateFrom,8,2),substr($strDateFrom,0,4));
-    $iDateTo=mktime(1,0,0,substr($strDateTo,5,2),     substr($strDateTo,8,2),substr($strDateTo,0,4));
+    $iDateFrom=mktime(1,0,0,substr($strDateFrom,5,2),substr($strDateFrom,8,2),substr($strDateFrom,0,4));
+    $iDateTo=mktime(1,0,0,substr($strDateTo,5,2),substr($strDateTo,8,2),substr($strDateTo,0,4));
 
-    if ($iDateTo>=$iDateFrom)
+    if ($iDateTo >= $iDateFrom)
     {
         array_push($aryRange,date('Y-m-d',$iDateFrom));
-        while ($iDateFrom<$iDateTo)
+        while ($iDateFrom < $iDateTo)
         {
-            $iDateFrom+=86400;
+            $iDateFrom += 86400;
             array_push($aryRange,date('Y-m-d',$iDateFrom));
         }
     }
@@ -29,7 +28,7 @@ function getMonth($pdate)
     $date = DateTime::createFromFormat("Y-m-d", $pdate);
     return $date->format("m");
 }
-function IsDateInclude($Date,$DateArr)
+function IsDateInclude($Date,$DateArr) : bool
 {
     foreach ($DateArr as $date)
     {
