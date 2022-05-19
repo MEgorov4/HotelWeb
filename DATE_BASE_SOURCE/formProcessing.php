@@ -13,16 +13,10 @@ if (false) {
 	$_SESSION['message'] = 'Дата начала больше даты окончания заезда';
 } else {
 	$queryDates = mysqli_fetch_all(mysqli_query($connect, "SELECT v_booking.StartDate, v_booking.DateEnd FROM `hotelrooms`,`v_booking` WHERE hotelrooms.id = '1'"));
-	$CurrentDatesArr = createDateRangeArray(strtotime($StartDate),strtotime($DateEnd),);
-	$StartDate = date_create_from_format('d-m-Y', strtotime($StartDate))->format('Y-m-d');
 	foreach ($queryDates as $Dates) {
-		foreach (createDateRangeArray($Dates[0], $Dates[1]) as $item) {
-			foreach ($CurrentDatesArr as $Date) {
-				if ($Date == $item) {
-					$_SESSION['message'] = 'В это время номер забронирован';
-					header("Location: ../postForm.php");
-				}
-			}
+		if((strtotime($DateEnd) <= strtotime($Dates[1]) && strtotime($StartDate) >= strtotime($Dates[0])) || ((strtotime($DateEnd) >= strtotime($Dates[1]) && strtotime($StartDate) <= strtotime($Dates[0]))))
+		{
+			
 		}
 	}
 
