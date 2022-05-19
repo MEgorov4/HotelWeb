@@ -21,8 +21,6 @@ require_once 'DATE_BASE_SOURCE/connect.php';
     <p> Выберите номер
         <select name="RoomId">
 			<?php
-
-
 			$query = mysqli_query($connect, "SELECT * FROM `hotelrooms`");
 			$query = mysqli_fetch_all($query);
 

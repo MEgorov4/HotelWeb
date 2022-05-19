@@ -1,5 +1,4 @@
-.calendar
-{
+.calendar {
     border: 2px solid #ffa908;
     height: 156px;
     width: 172px;
@@ -7,27 +6,31 @@
     margin-bottom: 20px;
 
 }
-.week{
+
+.week {
     width: 172px;
     background-color: #FFFF00;
 }
-caption{
+
+caption {
     background-color: #ffd300;
 }
-.day{
+
+.day {
     background-color: lawngreen;
 
 }
+
 .busy_day {
     background-color: darkred;
 
 }
 
-.calendarMassive
-{
+.calendarMassive {
     display: flex;
     flex-direction: row;
 }
+
 a {
     text-decoration: none;
     padding-bottom: 3px;

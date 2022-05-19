@@ -1,5 +1,5 @@
 * {
-    margin:0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -12,22 +12,25 @@ body {
     font-family: Montserrat, sans-serif;
 
 }
-.msg
-{
-    border:  2px solid #ffa908;
-    border-radius:3px;
+
+.msg {
+    border: 2px solid #ffa908;
+    border-radius: 3px;
     padding: 10px;
     text-align: center;
     font-weight: bold;
 }
+
 #Header {
     margin-bottom: 15px;
 }
+
 form {
     display: flex;
     flex-direction: column;
     width: 400px;
 }
+
 input {
     margin: 10px 0;
     padding: 10px;
@@ -35,6 +38,7 @@ input {
     outline: none;
     border-radius: 10px;
 }
+
 button {
     padding: 10px;
     background: #e3e3e3;
@@ -46,6 +50,7 @@ button {
     border: 1px solid #ffa908;
     font-size: 17px;
 }
+
 .table {
     width: 100%;
     margin-bottom: 20px;
@@ -54,8 +59,9 @@ button {
     border-collapse: collapse;
     outline: 3px solid #ffd300;
     font-size: 15px;
-    background: #fff!important;
+    background: #fff !important;
 }
+
 .table th {
     font-weight: bold;
     padding: 7px;
@@ -66,6 +72,7 @@ button {
     border-top: 3px solid #fff;
     border-bottom: 3px solid #ffd300;
 }
+
 .table td {
     padding: 7px;
     border: none;
@@ -73,14 +80,17 @@ button {
     border-bottom: 3px solid #fff;
     font-size: 15px;
 }
-.table tbody tr:nth-child(even){
-    background: #f8f8f8!important;
+
+.table tbody tr:nth-child(even) {
+    background: #f8f8f8 !important;
 }
+
 a {
     text-decoration: none;
     padding-bottom: 3px;
     color: #ffa908;
 }
+
 .Booking {
     border: 5px solid #ffd300;
     border-radius: 10px;
@@ -91,14 +101,16 @@ a {
     align-items: center;
     justify-content: center;
 }
+
 p {
     padding-bottom: 10px;
 }
-.image
-{
+
+.image {
     width: 300px;
     height: 300px;
 }
+
 .breadcrumb ul {
     display: flex;
 }
@@ -106,9 +118,11 @@ p {
 .breadcrumb li::before {
     content: "/";
 }
+
 .breadcrumb li {
     list-style-type: none;
 }
+
 .breadcrumb li:first-child::before {
     content: "";
 }
