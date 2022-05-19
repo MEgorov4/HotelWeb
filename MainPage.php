@@ -44,7 +44,7 @@
     <ul>
         <li><a href="MainPage.php">Главная</a></li>
         <li><a href="postForm.php">Оформление заказа</a></li>
-        <li><a href="bookingTable.php">Шахматка</a></li>
+        <li><a href="employmentСhart.php">Шахматка</a></li>
     </ul>
 </nav>
 </body>
